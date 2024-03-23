@@ -1,0 +1,29 @@
+{
+    "CheeseWorld2": {
+        "checkpoints": [
+            {
+                "steps": 200020,
+                "file_path": "results\\CheeseWorld2\\CheeseWorld2\\CheeseWorld2-200020.onnx",
+                "reward": 3.52,
+                "creation_time": 1711196519.1571615,
+                "auxillary_file_paths": [
+                    "results\\CheeseWorld2\\CheeseWorld2\\CheeseWorld2-200020.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 200020,
+            "file_path": "results\\CheeseWorld2\\CheeseWorld2.onnx",
+            "reward": 3.52,
+            "creation_time": 1711196519.1571615,
+            "auxillary_file_paths": [
+                "results\\CheeseWorld2\\CheeseWorld2\\CheeseWorld2-200020.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.27.0",
+        "torch_version": "2.0.0+cu117"
+    }
+}

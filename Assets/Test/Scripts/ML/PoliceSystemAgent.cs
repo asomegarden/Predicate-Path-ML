@@ -12,7 +12,7 @@ public class PoliceSystemAgent : Agent
     public int episodeCount = 1;
 
     public float rewardForCatchingThief = 1.0f; // 도둑을 잡았을 때의 보상
-    public float penaltyForMissingThief = -0.5f; // 먹이 먹힘 이벤트 발생 시 패널티
+    public float penaltyForMissingThief = -1.0f; // 먹이 먹힘 이벤트 발생 시 패널티
 
     public Thief thief;
     public GameObject policeObject;
@@ -20,11 +20,20 @@ public class PoliceSystemAgent : Agent
 
     private Vector3 eatenPosition = Vector3.zero;
 
+
+    private void Awake()
+    {
+        Application.runInBackground = true;
+    }
+
     public void OnFeedEaten(Vector3 position)
     {
         // 월드에 존재하는 먹이가 먹히면 호출됨. 먹힌 먹이의 위치
         eatenPosition = position;
-        SetReward(penaltyForMissingThief);
+        float xDistance = Mathf.Abs((int)(eatenPosition.x - policeObject.transform.position.x));
+        float yDistance = Mathf.Abs((int)(eatenPosition.y - policeObject.transform.position.y));
+        float distanceReward = (xDistance + yDistance) / 10;
+        SetReward(penaltyForMissingThief + distanceReward);
         RequestDecision();
         //RequestAction();
     }
