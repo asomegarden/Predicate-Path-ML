@@ -34,9 +34,7 @@ public class PoliceSystemAgent : Agent
         float yDistance = Mathf.Abs((int)(eatenPosition.y - policeObject.transform.localPosition.y));
         float distanceReward = (xDistance + yDistance) / 20;
 
-        Debug.Log(penaltyForMissingThief + distanceReward);
-
-        SetReward(penaltyForMissingThief + distanceReward);
+        SetReward(penaltyForMissingThief - distanceReward);
         RequestDecision();
         //RequestAction();
     }
