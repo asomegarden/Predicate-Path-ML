@@ -30,9 +30,12 @@ public class PoliceSystemAgent : Agent
     {
         // ¿ùµå¿¡ Á¸ÀçÇÏ´Â ¸ÔÀÌ°¡ ¸ÔÈ÷¸é È£ÃâµÊ. ¸ÔÈù ¸ÔÀÌÀÇ À§Ä¡
         eatenPosition = position;
-        float xDistance = Mathf.Abs((int)(eatenPosition.x - policeObject.transform.position.x));
-        float yDistance = Mathf.Abs((int)(eatenPosition.y - policeObject.transform.position.y));
-        float distanceReward = (xDistance + yDistance) / 10;
+        float xDistance = Mathf.Abs((int)(eatenPosition.x - policeObject.transform.localPosition.x));
+        float yDistance = Mathf.Abs((int)(eatenPosition.y - policeObject.transform.localPosition.y));
+        float distanceReward = (xDistance + yDistance) / 20;
+
+        Debug.Log(penaltyForMissingThief + distanceReward);
+
         SetReward(penaltyForMissingThief + distanceReward);
         RequestDecision();
         //RequestAction();
