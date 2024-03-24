@@ -57,6 +57,8 @@ public class PoliceSystemAgent : Agent
     {
         sensor.AddObservation(eatenPosition.x);
         sensor.AddObservation(eatenPosition.y);
+        sensor.AddObservation(policeObject.transform.localPosition.x);
+        sensor.AddObservation(policeObject.transform.localPosition.y);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
