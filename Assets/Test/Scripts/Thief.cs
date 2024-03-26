@@ -107,7 +107,7 @@ public class Thief : MonoBehaviour
     {
         this.transform.localPosition = new Vector3(-1, -1, 0);
 
-        int pathId = 0;// Random.Range(1, pathDictionary.Keys.Count);
+        int pathId = Random.Range(0, pathDictionary.Keys.Count);
         pathText.text = $"Path {pathId + 1}";
 
         path = pathDictionary[pathId];
