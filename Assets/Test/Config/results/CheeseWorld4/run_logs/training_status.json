@@ -1,0 +1,47 @@
+{
+    "CheeseWorld4": {
+        "checkpoints": [
+            {
+                "steps": 196925,
+                "file_path": "results\\CheeseWorld4\\CheeseWorld4\\CheeseWorld4-196925.onnx",
+                "reward": 62.630434782608695,
+                "creation_time": 1711431318.4894474,
+                "auxillary_file_paths": [
+                    "results\\CheeseWorld4\\CheeseWorld4\\CheeseWorld4-196925.pt"
+                ]
+            },
+            {
+                "steps": 349592,
+                "file_path": "results\\CheeseWorld4\\CheeseWorld4\\CheeseWorld4-349592.onnx",
+                "reward": 95.9,
+                "creation_time": 1711431829.829863,
+                "auxillary_file_paths": [
+                    "results\\CheeseWorld4\\CheeseWorld4\\CheeseWorld4-349592.pt"
+                ]
+            },
+            {
+                "steps": 400005,
+                "file_path": "results\\CheeseWorld4\\CheeseWorld4\\CheeseWorld4-400005.onnx",
+                "reward": -44.223880597014926,
+                "creation_time": 1711431994.8205411,
+                "auxillary_file_paths": [
+                    "results\\CheeseWorld4\\CheeseWorld4\\CheeseWorld4-400005.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 400005,
+            "file_path": "results\\CheeseWorld4\\CheeseWorld4.onnx",
+            "reward": -44.223880597014926,
+            "creation_time": 1711431994.8205411,
+            "auxillary_file_paths": [
+                "results\\CheeseWorld4\\CheeseWorld4\\CheeseWorld4-400005.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.27.0",
+        "torch_version": "2.0.0+cu117"
+    }
+}
