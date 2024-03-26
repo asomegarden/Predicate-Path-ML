@@ -11,8 +11,8 @@ public class PoliceSystemAgent : Agent
 {
     public int episodeCount = 1;
 
-    private float rewardForCatchingThief = 10f; // ?????? ?????? ???? ????
-    private float penaltyForMissingThief = -1.0f; // ???? ???? ?????? ???? ?? ??????
+    private float rewardForCatchingThief = 300f;
+    private float penaltyForMissingThief = -10;
 
     public Thief thief;
     public GameObject policeObject;
@@ -30,21 +30,27 @@ public class PoliceSystemAgent : Agent
 
     public void OnFeedEaten(Vector3 position)
     {
-        // ?????? ???????? ?????? ?????? ??????. ???? ?????? ????
         eatenPosition = position;
-        float xDistance = Mathf.Abs((int)(eatenPosition.x - policeObject.transform.localPosition.x));
-        float yDistance = Mathf.Abs((int)(eatenPosition.y - policeObject.transform.localPosition.y));
-        float distanceReward = (xDistance + yDistance) / 20;
-        float penalty = (penaltyForMissingThief - distanceReward) * 10;
+        float xDistance = Mathf.Abs(eatenPosition.x - policeObject.transform.localPosition.x);
+        float yDistance = Mathf.Abs(eatenPosition.y - policeObject.transform.localPosition.y);
+        float distancePenalty = (xDistance + yDistance);
+        float penalty = (penaltyForMissingThief - distancePenalty);
         SetReward(penalty - ++step);
+        // 기본 패널티
+        // 거리에 따른 패널티
+        // 뒤 스탭으로 갈수록 패널티
+        // 1:1:1 비율이 되기를 원함
+        // 경로가 최대 18정도로 구성되어있고, 거리도 최대 20이기 때문에, 같은 비율을 가짐.
+        // 기본 패널티는 그 절반정도인 10으로 구성
+        // 그러면 다 합쳐서 50정도가 최대 패널티
+        // 그러면 보상은 그 5배에서 10배정도로 구성해서 250~500으로 구성
+        // 현재는 300으로 설정
         RequestDecision();
-        //RequestAction();
     }
 
     public void OnThiefCaught()
     {
         SetReward(rewardForCatchingThief);
-        //EndEpisode(); ?????????? ???????? ?????? ?? ?? ??????, ???? ???? ????.
         PrintLog($"catch");
     }
 
