@@ -11,12 +11,14 @@ public class PoliceSystemAgent : Agent
 {
     public int episodeCount = 1;
 
-    public float rewardForCatchingThief = 1.0f; // 도둑을 잡았을 때의 보상
-    public float penaltyForMissingThief = -1.0f; // 먹이 먹힘 이벤트 발생 시 패널티
+    private float rewardForCatchingThief = 10f; // ?????? ?????? ???? ????
+    private float penaltyForMissingThief = -1.0f; // ???? ???? ?????? ???? ?? ??????
 
     public Thief thief;
     public GameObject policeObject;
     public Text logText;
+
+    int step = 0;
 
     private Vector3 eatenPosition = Vector3.zero;
 
@@ -28,13 +30,13 @@ public class PoliceSystemAgent : Agent
 
     public void OnFeedEaten(Vector3 position)
     {
-        // 월드에 존재하는 먹이가 먹히면 호출됨. 먹힌 먹이의 위치
+        // ?????? ???????? ?????? ?????? ??????. ???? ?????? ????
         eatenPosition = position;
         float xDistance = Mathf.Abs((int)(eatenPosition.x - policeObject.transform.localPosition.x));
         float yDistance = Mathf.Abs((int)(eatenPosition.y - policeObject.transform.localPosition.y));
         float distanceReward = (xDistance + yDistance) / 20;
-
-        SetReward(penaltyForMissingThief - distanceReward);
+        float penalty = (penaltyForMissingThief - distanceReward) * 10;
+        SetReward(penalty - ++step);
         RequestDecision();
         //RequestAction();
     }
@@ -42,7 +44,7 @@ public class PoliceSystemAgent : Agent
     public void OnThiefCaught()
     {
         SetReward(rewardForCatchingThief);
-        //EndEpisode(); 지속적으로 추적하는 학습을 할 수 있도록, 학습 종료 안함.
+        //EndEpisode(); ?????????? ???????? ?????? ?? ?? ??????, ???? ???? ????.
         PrintLog($"catch");
     }
 
@@ -57,8 +59,7 @@ public class PoliceSystemAgent : Agent
     {
         sensor.AddObservation(eatenPosition.x);
         sensor.AddObservation(eatenPosition.y);
-        sensor.AddObservation(policeObject.transform.localPosition.x);
-        sensor.AddObservation(policeObject.transform.localPosition.y);
+        sensor.AddObservation((policeObject.transform.localPosition - eatenPosition).sqrMagnitude);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -71,6 +72,7 @@ public class PoliceSystemAgent : Agent
 
     public override void OnEpisodeBegin()
     {
+        step = 0;
         thief.OnEpisodeBegin();
         ClearLog();
         PrintLog($"start episode {episodeCount}");
