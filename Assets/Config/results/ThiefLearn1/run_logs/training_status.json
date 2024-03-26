@@ -2,22 +2,31 @@
     "ThiefLearn1": {
         "checkpoints": [
             {
-                "steps": 17553,
-                "file_path": "results\\ThiefLearn1\\ThiefLearn1\\ThiefLearn1-17553.onnx",
-                "reward": 99.78878878878879,
-                "creation_time": 1711448488.1463475,
+                "steps": 30770,
+                "file_path": "results\\ThiefLearn1\\ThiefLearn1\\ThiefLearn1-30770.onnx",
+                "reward": 77.3917063803043,
+                "creation_time": 1711456231.7584302,
                 "auxillary_file_paths": [
-                    "results\\ThiefLearn1\\ThiefLearn1\\ThiefLearn1-17553.pt"
+                    "results\\ThiefLearn1\\ThiefLearn1\\ThiefLearn1-30770.pt"
+                ]
+            },
+            {
+                "steps": 88442,
+                "file_path": "results\\ThiefLearn1\\ThiefLearn1\\ThiefLearn1-88442.onnx",
+                "reward": 210.41524919782367,
+                "creation_time": 1711456825.3089948,
+                "auxillary_file_paths": [
+                    "results\\ThiefLearn1\\ThiefLearn1\\ThiefLearn1-88442.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 17553,
+            "steps": 88442,
             "file_path": "results\\ThiefLearn1\\ThiefLearn1.onnx",
-            "reward": 99.78878878878879,
-            "creation_time": 1711448488.1463475,
+            "reward": 210.41524919782367,
+            "creation_time": 1711456825.3089948,
             "auxillary_file_paths": [
-                "results\\ThiefLearn1\\ThiefLearn1\\ThiefLearn1-17553.pt"
+                "results\\ThiefLearn1\\ThiefLearn1\\ThiefLearn1-88442.pt"
             ]
         }
     },
