@@ -15,8 +15,11 @@ public class Thief : MonoBehaviour
 
     private Coroutine movePathCoroutine = null;
 
+    private int currentEpisodeCount = 0;
+
     public void Initialize()
     {
+        currentEpisodeCount = 0;
         pathDictionary = new Dictionary<int, List<Vector3>>();
         pathDictionary.Add(0, new List<Vector3>()
         {
@@ -107,7 +110,9 @@ public class Thief : MonoBehaviour
     {
         this.transform.localPosition = new Vector3(-1, -1, 0);
 
-        int pathId = Random.Range(0, pathDictionary.Keys.Count);
+        int pathId = currentEpisodeCount % 3 ;//Random.Range(0, pathDictionary.Keys.Count);
+        currentEpisodeCount++;
+
         pathText.text = $"Path {pathId + 1}";
 
         path = pathDictionary[pathId];
