@@ -1,0 +1,29 @@
+{
+    "CheeseWorld7": {
+        "checkpoints": [
+            {
+                "steps": 102942,
+                "file_path": "results\\CheeseWorld7\\CheeseWorld7\\CheeseWorld7-102942.onnx",
+                "reward": 128.73,
+                "creation_time": 1714634568.9065642,
+                "auxillary_file_paths": [
+                    "results\\CheeseWorld7\\CheeseWorld7\\CheeseWorld7-102942.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 102942,
+            "file_path": "results\\CheeseWorld7\\CheeseWorld7.onnx",
+            "reward": 128.73,
+            "creation_time": 1714634568.9065642,
+            "auxillary_file_paths": [
+                "results\\CheeseWorld7\\CheeseWorld7\\CheeseWorld7-102942.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.27.0",
+        "torch_version": "2.0.0+cu117"
+    }
+}

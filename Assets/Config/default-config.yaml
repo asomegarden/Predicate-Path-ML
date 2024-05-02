@@ -1,5 +1,5 @@
 behaviors:
-  CheeseWorld6:
+  CheeseWorld7:
     trainer_type: ppo
     hyperparameters:
       batch_size: 128
