@@ -18,6 +18,8 @@ public class PoliceSystemAgent : Agent
     public GameObject policeObject;
     public Text logText;
 
+    private Vector2 prevPosition = Vector2.zero;
+
     int step = 0;
 
     private Vector3 eatenPosition = Vector3.zero;
@@ -58,14 +60,23 @@ public class PoliceSystemAgent : Agent
     {
         thief.Initialize();
         eatenPosition = Vector3.zero;
+        prevPosition = Vector3.zero;
         policeObject.transform.localPosition = new Vector3(-2, -1, 0);
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
+        Vector2 direction = Vector3.zero;
+
+        if(step != 1) direction = (prevPosition - (Vector2)eatenPosition).normalized;
+
         sensor.AddObservation(eatenPosition.x);
         sensor.AddObservation(eatenPosition.y);
-        sensor.AddObservation((policeObject.transform.localPosition - eatenPosition).sqrMagnitude);
+
+        sensor.AddObservation(direction.x);
+        sensor.AddObservation(direction.y);
+
+        prevPosition = eatenPosition;
     }
 
     public override void OnActionReceived(ActionBuffers actions)

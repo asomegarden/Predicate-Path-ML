@@ -1,5 +1,5 @@
 behaviors:
-  ThiefLearn1:
+  CheeseWorld5:
     trainer_type: ppo
     hyperparameters:
       batch_size: 128
