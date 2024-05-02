@@ -70,9 +70,6 @@ public class PoliceSystemAgent : Agent
 
         if(step != 1) direction = (prevPosition - (Vector2)eatenPosition).normalized;
 
-        sensor.AddObservation(eatenPosition.x);
-        sensor.AddObservation(eatenPosition.y);
-
         sensor.AddObservation(direction.x);
         sensor.AddObservation(direction.y);
 
@@ -84,7 +81,26 @@ public class PoliceSystemAgent : Agent
         int xPos = actions.DiscreteActions[0];
         int yPos = actions.DiscreteActions[1];
 
-        policeObject.transform.localPosition = new Vector3(xPos, yPos, 0);
+        Vector2 movePosition = new Vector3(xPos - 5 + eatenPosition.x, yPos - 5 + eatenPosition.y, 0);
+
+        //Clamp °úÁ¤
+        if(movePosition.x > 9)
+        {
+            movePosition.x = 9;
+        }else if(movePosition.x < 0)
+        {
+            movePosition.x = 0;
+        }
+
+        if(movePosition.y > 9)
+        {
+            movePosition.y = 9;
+        }else if(movePosition.y < 0)
+        {
+            movePosition.y = 0;
+        }
+
+        policeObject.transform.localPosition = movePosition;
     }
 
     public override void OnEpisodeBegin()
