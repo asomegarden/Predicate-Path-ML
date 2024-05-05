@@ -1,0 +1,29 @@
+{
+    "CheeseWorld8": {
+        "checkpoints": [
+            {
+                "steps": 157688,
+                "file_path": "results\\CheeseWorld8\\CheeseWorld8\\CheeseWorld8-157688.onnx",
+                "reward": 168.30116814061216,
+                "creation_time": 1714917649.4438972,
+                "auxillary_file_paths": [
+                    "results\\CheeseWorld8\\CheeseWorld8\\CheeseWorld8-157688.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 157688,
+            "file_path": "results\\CheeseWorld8\\CheeseWorld8.onnx",
+            "reward": 168.30116814061216,
+            "creation_time": 1714917649.4438972,
+            "auxillary_file_paths": [
+                "results\\CheeseWorld8\\CheeseWorld8\\CheeseWorld8-157688.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.27.0",
+        "torch_version": "2.0.0+cu117"
+    }
+}
